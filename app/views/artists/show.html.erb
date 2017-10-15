@@ -2,6 +2,7 @@
 
 <p>Age: <%= @artist.age %></p>
 <p>Bio: <%= @artist.bio %></p>
+<%= link_to "[Delete]", artist_path(@artist.id), method: :delete, data: { confirm: "Are you sure?" } %>
 
 <!-- Photos -->
 <h4>Photos</h4>
@@ -9,7 +10,17 @@
   <%= image_tag photo.image %>
 <% end %>
 <hr>
-<%= link_to "[Delete]", artist_path(@artist.id), method: :delete, data: { confirm: "Are you sure?" } %>
+<h4>List of Songs</h4>
+
+<% if @artist.songs.any? %>
+  <ul>
+    <% @artist.songs.each do |so| %>
+      <li><%= so.song_name %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>There are no songs listed.</p>
+<% end %>
 <hr>
 
 <%= link_to "[All Artists]", root_path %>
