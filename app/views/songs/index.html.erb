@@ -3,3 +3,7 @@
 <% @songs.each do |song| %>
   <p><%= link_to song.song_name, song_path(song.id) %></p>
 <% end %>
+
+<hr>
+<%= link_to "[All Artists]", root_path %>
+<%= link_to "[All Songs]", songs_path %>

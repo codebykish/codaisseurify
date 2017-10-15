@@ -3,3 +3,7 @@
 <p>Song: <%= @song.song_name %></p>
 <%= link_to "[Delete]", song_path(@song.id), method: :delete, data: { confirm: "Are you sure?" } %>
 <%= link_to "[Edit]", edit_song_path(@song.id) %>
+
+<hr>
+<%= link_to "[All Artists]", root_path %>
+<%= link_to "[All Songs]", songs_path %>
