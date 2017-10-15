@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :photo do
     artist nil
-    image "MyString"
+    remote_image_url "MyString"
   end
 end
