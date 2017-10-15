@@ -1,0 +1,11 @@
+<%= form_for @song do |f| %>
+
+  <%= f.label :song_name %>
+  <%= f.text_field :song_name %>
+
+  <%= f.label :artist_id %>
+  <%= f.collection_select(:artist_id, Artist.all, :id, :artist_name) %>
+
+  <%= f.submit (@song.new_record? ? "Create" : "Update") %>
+
+<% end %>
