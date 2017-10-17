@@ -15,7 +15,10 @@
 <% if @artist.songs.any? %>
   <ul>
     <% @artist.songs.each do |so| %>
-      <li><%= so.song_name %></li>
+      <li><%= so.song_name %>
+      <%= link_to "[Edit]", edit_artist_song_path(@artist, so) %></li>
+      <%= link_to "[Add]", new_artist_song_path(@artist, so) %></li>
+      <%= link_to "[Delete]", artist_song_path(@artist, so), method: :delete, data: { confirm: "Are you sure?" } %>
     <% end %>
 
   </ul>
@@ -23,13 +26,7 @@
 <% else %>
   <p>There are no songs listed.</p>
 <% end %>
-<hr>
 
-
-<h4>Add or Edit Songs</h4>
-<%= link_to "[Edit Songs]", songs_path %>
-<%= link_to "[Add Song]", new_song_path %>
 
 <hr>
 <%= link_to "[All Artists]", root_path %>
-<%= link_to "[All Songs]", songs_path %>
