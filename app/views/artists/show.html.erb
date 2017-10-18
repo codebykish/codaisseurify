@@ -14,11 +14,11 @@
 
 <% if @artist.songs.any? %>
   <ul>
-    <% @artist.songs.each do |so| %>
-      <li><%= so.song_name %>
-      <%= link_to "[Edit]", edit_artist_song_path(@artist, so) %></li>
-      <%= link_to "[Add]", new_artist_song_path(@artist, so) %></li>
-      <%= link_to "[Delete]", artist_song_path(@artist, so), method: :delete, data: { confirm: "Are you sure?" } %>
+    <% @artist.songs.each do |song| %>
+      <li><%= song.song_name %>
+      <%= link_to "[Edit]", edit_artist_song_path(@artist, song) %></li>
+      <%= link_to "[Add]", new_artist_song_path(@artist, song) %></li>
+      <%= link_to "[Delete]", artist_song_path(@artist, song), method: :delete, data: { confirm: "Are you sure?" } %>
     <% end %>
 
   </ul>
