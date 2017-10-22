@@ -37,6 +37,8 @@ gem 'jquery-rails', '~> 4.3.1'
 # Use these gems for image uploads
 gem 'carrierwave', '0.11.2'
 gem 'cloudinary', '1.2.3'
+#used for API
+gem 'active_model_serializers', '~> 0.10.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -5,4 +5,16 @@ Rails.application.routes.draw do
    resources :songs
  end
 
+  namespace :api do
+   resources :artists
+  end
+
+  namespace :api do
+   resources :songs
+  end
+
+  namespace :api do
+    resources :photos
+  end
+
 end

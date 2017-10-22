@@ -15,10 +15,15 @@
 <% if @artist.songs.any? %>
   <ul>
     <% @artist.songs.each do |song| %>
-      <li><%= song.song_name %>
-      <%= link_to "[Edit]", edit_artist_song_path(@artist, song) %></li>
+      <!-- <li><%= song.song_name %> -->
+
+  <li class="song<%= song.completed? ? " completed" : "" %>" data-id="<%= song.id %>">
+  <input name="song[<%= song.id %>]" id="song-<%= song.id %>" type="checkbox" value="1" <%= song.completed? ? 'checked="checked"' : '' %>>
+  <label for="song-<%= song.id %>"><%= song.song_name %></label>
+  </li>
+      <!-- <%= link_to "[Edit]", edit_artist_song_path(@artist, song) %></li>
       <%= link_to "[Add]", new_artist_song_path(@artist, song) %></li>
-      <%= link_to "[Delete]", artist_song_path(@artist, song), method: :delete, data: { confirm: "Are you sure?" } %>
+      <%= link_to "[Delete]", artist_song_path(@artist, song), method: :delete, data: { confirm: "Are you sure?" } %> -->
     <% end %>
 
   </ul>
@@ -30,3 +35,26 @@
 
 <hr>
 <%= link_to "[All Artists]", root_path %>
+
+<script>
+function toggleDone(event) {
+  var target = $(event.target);
+  var listItem = $(target).parent();
+  //var listItem = $("input[type='checkbox']").parent();
+
+  var songId = listItem.data('id');
+  var isCompleted = !listItem.hasClass("completed");
+// console.log(songId);
+
+  if ($(event.target).is(":checked")) {
+    if(!$(this).parent().hasClass("completed")) {
+        $(this).parent().addClass("completed");
+    }
+  }else {
+    $(this).parent().removeClass("completed");
+  };
+}
+
+$( "input[type=checkbox]").click(toggleDone);
+
+</script>
