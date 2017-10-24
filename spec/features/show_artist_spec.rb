@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe "Viewing an Artist Page" do
-  # let!(:artist) { create :artist }
+  let!(:artist) { create :artist }
 
   it "shows the artist details" do
     visit artist_url(artist)

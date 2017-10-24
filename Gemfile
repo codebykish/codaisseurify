@@ -48,6 +48,12 @@ group :development, :test do
   gem 'factory_girl_rails', '4.7.0'
   gem 'faker', '1.6.6'
   gem 'shoulda-matchers', '~> 3.1'
+  gem 'selenium-webdriver'
+  gem "chromedriver-helper"
+end
+
+group :test do
+  gem 'database_cleaner'
 end
 
 group :development do
