@@ -40,11 +40,9 @@
 function toggleDone(event) {
   var target = $(event.target);
   var listItem = $(target).parent();
-  //var listItem = $("input[type='checkbox']").parent();
 
   var songId = listItem.data('id');
   var isCompleted = !listItem.hasClass("completed");
-// console.log(songId);
 
   if ($(event.target).is(":checked")) {
     if(!$(this).parent().hasClass("completed")) {
